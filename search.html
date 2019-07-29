@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <title>Home</title>
+<style type="text/css">html,body{
+   width:100%;
+   height:100%;
+   background:url("{% static "home_bg.jpg" %}") no-repeat top center scroll;
+   background-size:100% 100%;
+   -webkit-background-size：100%;
+   -ms-background-size：100%;
+   -o-background-size：100%;
+   -moz-background-size：100%;
+}
+    #time{
+			border: 1.5px soLid #CCC;
+			width: 100%;
+			margin: 5px auto;
+			text-align: center;
+			background-color:#09F
+		}
+</style>
+</head>
+<body>
+<div id="time"></div>
+
+<script type="text/javascript">
+	function showTime(){
+		"use strict";
+		//创建Date对象获取系统星期和时分秒
+	  var showtime="<span style='font-size:30px; font-family:Microsoft YaHei;'>"+"当前时间:  "+new Date().getFullYear()+" 年 "+(new Date().getMonth()+1)+ " 月 "+new Date().getDate()+" 日  "+"</span>";
+		//将获取到的星期数字转换成平时我们看到的字符串形式
+		switch(new Date().getDay()){
+			case 0:
+				showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+"星期日"+"</span>";
+				break;
+			case 1:
+				showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+"星期一"+"</span>";
+				break;
+			case 2:
+				showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+"星期二"+"</span>";
+				break;
+			case 3:
+				showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+"星期三"+"</span>";
+				break;
+			case 4:
+				showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+"星期四"+"</span>";
+				break;
+			case 5:
+				showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+"星期五"+"</span>";
+				break;
+			case 6:
+				showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+"星期六"+"</span>";
+				break;
+		}
+		showtime=showtime+"<span style='font-size:30px;font-family:Microsoft YaHei;'>"+" "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds()+"</span>";
+		//获取元素ID
+	  var elementDiv=document.getElementById("time");
+	  elementDiv.innerHTML=showtime;
+	  }
+		//实现时间动态变化
+		window.setInterval("showTime()",1000);
+	</script>
+<h2>请输入时间或姓名进行查询</h2>
+<form action="form_action.asp" method="get">
+姓名: <input type="text" name="inname" />
+时间: <input type="text" name="intime" />
+<input type="button" value="提交" onclick="window.location.href='search1.html'"/>
+</form>
+
+
+<a href="home.html">
+    <button>回到主页</button>
+</a>
+</body>
+</html>
+</html>
+
